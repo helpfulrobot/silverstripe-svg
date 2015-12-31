@@ -125,7 +125,7 @@ class SVGTemplate extends ViewableData
     {
         $this->custom_base_path = trim($path, DIRECTORY_SEPARATOR);
         return $this;
-    }    
+    }
 
     /**
      * @param $class
@@ -153,7 +153,6 @@ class SVGTemplate extends ViewableData
      */
     private function process($filePath)
     {
-
         if (!file_exists($filePath)) {
             return false;
         }
@@ -201,16 +200,14 @@ class SVGTemplate extends ViewableData
      */
     public function forTemplate()
     {
-
         $path = BASE_PATH . DIRECTORY_SEPARATOR;
         $path .= ($this->custom_base_path) ? $this->custom_base_path : $this->stat('base_path');
         $path .= DIRECTORY_SEPARATOR;
-        foreach($this->subfolders as $subfolder) {
+        foreach ($this->subfolders as $subfolder) {
             $path .= $subfolder . DIRECTORY_SEPARATOR;
         }
         $path .= (strpos($this->name, ".") === false) ? $this->name . '.' . $this->stat('extension') : $this->name;
 
         return $this->process($path);
-
     }
 }

@@ -24,5 +24,4 @@ class SVGTemplateProvider implements TemplateGlobalProvider
     {
         return new SVGTemplate($path, $id);
     }
-
 }
